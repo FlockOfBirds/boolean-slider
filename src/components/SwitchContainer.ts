@@ -164,12 +164,13 @@ class SwitchContainer extends Component<SwitchContainerProps, SwitchContainerSta
 
         if (onChangeMicroflow) {
             window.mx.ui.action(onChangeMicroflow, {
-                error: error =>
-                    window.mx.ui.error(`Error while executing microflow ${onChangeMicroflow}: ${error.message}`),
                 params: {
                     applyto: "selection",
                     guids: [ mxObject.getGuid() ]
-                }
+                },
+                origin: mxform,
+                error: error =>
+                window.mx.ui.error(`Error while executing microflow ${onChangeMicroflow}: ${error.message}`)
             });
         }
 
@@ -177,12 +178,12 @@ class SwitchContainer extends Component<SwitchContainerProps, SwitchContainerSta
             const context = new mendix.lib.MxContext();
             context.setContext(mxObject.getEntity(), mxObject.getGuid());
             window.mx.data.callNanoflow({
+                nanoflow: onChangeNanoflow,
+                origin: mxform,
                 context,
                 error: error =>
-                    window.mx.ui.error(`Error while executing the on change nanoflow: ${error.message}`),
-                nanoflow: onChangeNanoflow,
-                origin: mxform
-            });
+                    window.mx.ui.error(`Error while executing the on change nanoflow: ${error.message}`)
+                });
         }
     }
 
