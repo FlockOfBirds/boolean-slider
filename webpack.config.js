@@ -11,7 +11,7 @@ const widgetConfig = {
         libraryTarget: "umd"
     },
     resolve: {
-        extensions: [ ".ts", ".js", ".json" ]
+        extensions: [ ".ts", ".d.ts", ".js", ".json" ]
     },
     module: {
         rules: [

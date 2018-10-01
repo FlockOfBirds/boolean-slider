@@ -2,7 +2,7 @@ import { Component, createElement } from "react";
 import * as classNames from "classnames";
 
 import { Switch } from "./components/Switch";
-import SwitchContainer, { SwitchContainerProps } from "./components/SwitchContainer";
+import { SwitchContainerProps } from "./components/SwitchContainer";
 
 import { Label } from "./components/Label";
 
@@ -10,11 +10,11 @@ import { Label } from "./components/Label";
 export class preview extends Component<SwitchContainerProps, {}> {
     render() {
         const maxLabelWidth = 11;
-        if (this.props.label.trim()) {
+        if (this.props.label.value && this.props.label.value.trim()) {
             return createElement(Label, {
                 className: classNames(this.props.class, this.props.deviceStyle),
-                label: this.props.label,
-                style: SwitchContainer.parseStyle(this.props.style),
+                label: this.props.label.value,
+                style: undefined,
                 weight: this.props.labelWidth > maxLabelWidth ? maxLabelWidth : this.props.labelWidth
             }, this.renderSwitch(true));
         } else {
@@ -30,7 +30,7 @@ export class preview extends Component<SwitchContainerProps, {}> {
             isChecked: true,
             onClick: undefined as any,
             status: this.props.editable === "default" ? "enabled" : "disabled",
-            style: !hasLabel ? SwitchContainer.parseStyle(this.props.style) : undefined
+            style: !hasLabel ? undefined : undefined
         });
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="com.mendix.widget.custom.switch.Switch" needsEntityContext="true" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../xsd/widget.xsd">
+<widget id="com.mendix.widget.custom.switch.Switch" needsEntityContext="true" offlineCapable="true" pluginWidget="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../xsd/widget.xsd">
     <name>Switch</name>
     <description>Toggle a boolean attribute</description>
     <icon>
@@ -61,17 +61,10 @@
                 <enumerationValue key="danger">Danger</enumerationValue>
             </enumerationValues>
         </property>
-        <property key="onChangeMicroflow" type="microflow" required="false">
-            <caption>On change microflow</caption>
+        <property key="onChangeAction" type="action" required="false">
+            <caption>On change action</caption>
             <category>Events</category>
-            <description>Microflow to trigger when button is toggled</description>
-            <returnType type="Void"/>
-        </property>
-        <property key="onChangeNanoflow" type="nanoflow" required="false">
-            <caption>On change nanoflow</caption>
-            <category>Events</category>
-            <description>Nanoflow to trigger when button is toggled</description>
-            <returnType type="Void"/>
+            <description>Action to trigger when button is toggled</description>
         </property>
     </properties>
 </widget>
