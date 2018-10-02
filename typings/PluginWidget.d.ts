@@ -27,7 +27,7 @@ declare global {
             [name: string]: WidgetPropertyValue | Dispatch;
         }
 
-        export enum ValueStatus {
+        export const enum ValueStatus {
             Loading = "loading",
             Unavailable = "unavailable",
             Available = "available"
